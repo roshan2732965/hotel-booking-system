@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">HBS Website</a>
+            <a class="navbar-brand" href="/">Hotel Booking </a>
         </div>
 
         @if ( auth()->check() )

@@ -31,7 +31,8 @@ class RoomController extends Controller
             'name' => 'required',
             'floor' => 'required',
             'type' => 'required',
-            'beds' => 'required'
+            'beds' => 'required',
+            'price'=>'required|numeric|min:0'
         ]);
 
         Room::create($request->all());
@@ -59,7 +60,9 @@ class RoomController extends Controller
             'name' => 'required',
             'floor' => 'required',
             'type' => 'required',
-            'beds' => 'required'
+            'beds' => 'required',
+            'price'=>'required|numeric|min:0'
+
         ]);
 
         $room = Room::find($id);
