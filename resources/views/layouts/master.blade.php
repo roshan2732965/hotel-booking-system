@@ -9,8 +9,8 @@
     <!-- Bootstrap CSS -->
     {{ Html::style("css/bootstrap.min.css") }}
     {{ Html::style('css/font-awesome.min.css') }}
-    {{ Html::style('plugins/bootstrap-select/dist/css/bootstrap-select.css') }}
-    {{ Html::style('plugins/Zebra_Datepicker/dist/css/bootstrap/zebra_datepicker.css') }}
+    {{-- {{ Html::style('plugins/bootstrap-select/dist/css/bootstrap-select.css') }}
+    {{ Html::style('plugins/Zebra_Datepicker/dist/css/bootstrap/zebra_datepicker.css') }} --}}
     {{ Html::style('css/style.css') }}
 
     @yield('style')
@@ -25,22 +25,23 @@
 
 {{ Html::script('js/jquery.js') }}
 {{ Html::script('js/bootstrap.js') }}
-{{ Html::script('plugins/bootstrap-select/dist/js/bootstrap-select.js') }}
-{{ Html::script('plugins/Zebra_Datepicker/dist/zebra_datepicker.min.js') }}
+{{-- {{ Html::script('plugins/bootstrap-select/dist/js/bootstrap-select.js') }}
+{{ Html::script('plugins/Zebra_Datepicker/dist/zebra_datepicker.min.js') }} --}}
 {{ Html::script('js/script.js') }}
 
 @yield('script')
 <script>
-    $(document).ready(function () {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+    // $(document).ready(function () {
+    //     $.ajaxSetup({
+    //         headers: {
+    //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //         }
+    //     });
 
-        $('.selectpicker').selectpicker();
-    });
+    //     $('.selectpicker').selectpicker();
+    // });
 </script>
+{{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
 
 </body>
 </html>

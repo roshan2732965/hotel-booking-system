@@ -36,8 +36,10 @@ class BookingController extends Controller
         $request->validate([
             'client_id' => 'required',
             'room_id' => 'required',
-            'start_date' => 'required',
-            'end_date' => 'required',
+            'start_date' => 'required|after_or_equal:today',
+            'end_date' => 'required|after:start_date',
+            'total_price' => 'required',
+            'total_payment'=>'required|numeric|min:0'
         ]);
 
         // Save into Database
