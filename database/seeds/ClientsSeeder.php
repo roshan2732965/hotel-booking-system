@@ -18,6 +18,8 @@ class ClientsSeeder extends Seeder
             ['name' => 'Samantha', 'email' => 'samantha@example.com', 'phone' => '+1-202-555-0548', 'image' => 'placeholder.png'],
             ['name' => 'Shahid', 'email' => 'shahid@example.com', 'phone' => '+1-202-555-0111', 'image' => 'placeholder.png'],
             ['name' => 'John', 'email' => 'jhon@example.com', 'phone' => '+1-202-555-0121', 'image' => 'placeholder.png'],
+            ['name' => 'customer', 'email' => 'customer@customer.com', 'phone' => '+1-202-555-0111', 'image' => 'placeholder.png'],
+
         ];
 
         foreach ($clients as $client) {
