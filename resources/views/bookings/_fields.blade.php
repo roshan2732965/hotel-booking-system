@@ -38,3 +38,11 @@
     {!! Form::number('total_payment', $client->total_payment,['class' => 'form-control', 'placeholder' => 'Payment']) !!}
     <span class="text-danger">{{ $errors->has('total_payment') ? $errors->first('total_payment') : '' }}</span>
 </div>
+<div class="form-group">
+    {!! Form::label('name','Payment Method:') !!}
+    <select class="selectpicker form-control" data-live-search="true" title="" name="payment_method">
+            <option value="cash">CASH</option>
+            <option value="card">CARD</option>
+            <option value="both">CASH & CARD</option>
+    </select>
+</div>

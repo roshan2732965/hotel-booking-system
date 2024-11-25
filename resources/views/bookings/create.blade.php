@@ -50,22 +50,20 @@
             const differenceInTime = end - start;
             const differenceInDays = differenceInTime / (1000 * 3600 * 24);
 
-            if (differenceInDays >= 0) {
+            if (differenceInDays == 0) {
 
+                var room_price = $('option:selected','.room').data('price');
+                var total_price = room_price;
+                $('.total_price').val(total_price);
+
+                // alert('Difference in days: ' + differenceInDays);
+            } else if(differenceInDays >= 1) {
 
                 var room_price = $('option:selected','.room').data('price');
                 var total_price = room_price * differenceInDays;
                 $('.total_price').val(total_price);
-
-                // alert('The room price is : '+total_price);
-
-                // const roomPrice = $('option:selected', this).data('price');
-
-                // alert
-
-
-                // alert('Difference in days: ' + differenceInDays);
-            } else {
+            }
+            else{
                 alert('End date must be after start date.');
             }
         }
