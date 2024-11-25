@@ -43,10 +43,10 @@ class BookingController extends Controller
             'total_price' => 'required',
             'total_payment'=>'required|numeric|min:0',
             'payment_method' => 'required|string'
-            
+
         ]);
 
-        dd($request->all());
+        // dd($request->all());
 
         try {
             DB::beginTransaction();
