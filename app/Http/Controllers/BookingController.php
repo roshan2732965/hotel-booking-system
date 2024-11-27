@@ -7,6 +7,8 @@ use App\CanceledBooking;
 use App\Client;
 use App\Room;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class BookingController extends Controller
 {
@@ -36,27 +38,50 @@ class BookingController extends Controller
         $request->validate([
             'client_id' => 'required',
             'room_id' => 'required',
-            'start_date' => 'required',
-            'end_date' => 'required',
+            'start_date' => 'required|after_or_equal:today',
+            'end_date' => 'required|after_or_equal:start_date',
+            'total_price' => 'required',
+            'total_payment'=>'required|numeric|min:0',
+            'payment_method' => 'required|string'
+
         ]);
 
+        // dd($request->all());
+
+        try {
+            DB::beginTransaction();
         // Save into Database
-        Booking::create([
-            'client_id' => $request->client_id,
-            'room_id' => $request->room_id,
-            'user_id' => auth()->user()->id,
-            'start_date' => $request->start_date,
-            'end_date' => $request->end_date,
-        ]);
+            $booking = Booking::create([
+                'client_id' => $request->client_id,
+                'room_id' => $request->room_id,
+                'user_id' => auth()->user()->id,
+                'start_date' => $request->start_date,
+                'end_date' => $request->end_date,
+            ]);
 
-        // Update Rooms status
-        $room = Room::find($request->room_id);
-        $room->status = 0;
-        $room->save();
+            $booking->payments()->create([
+                'total_price' => $request->total_price,
+                'total_payment' => $request->total_payment,
+                'payment_method' => $request->payment_method, 
+            ]);
 
-        session()->flash('msg', 'The Room Has been booked');
+            // Update Rooms status
+            $room = Room::find($request->room_id);
+            $room->status = 0;
+            $room->save();
 
-        return redirect('/booking');
+            DB::commit();
+
+            session()->flash('msg', 'The Room Has been booked');
+            return redirect()->back();
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            // session()->flash('msg',$e->getMessage());
+            session()->flash('msg','Something went wrong !! Please try again later !!');
+            return redirect()->back();
+        }
+
     }
 
 

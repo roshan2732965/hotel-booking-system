@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">HBS Website</a>
+            <a class="navbar-brand" href="/">Hotel Booking </a>
         </div>
 
         @if ( auth()->check() )
@@ -36,6 +36,15 @@
                         <li><a href="/booking/create"><i class="fa fa-calendar-plus-o"></i> Book Room</a></li>
                         <li><a href="/booking"><i class="fa fa-calendar-check-o"></i> View Bookings</a></li>
                         <li><a href="/bookings/canceled"><i class="fa fa-calendar-check-o"></i> Canceled Bookings</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-money"></span> Transactions <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        {{-- <li><a href="/booking/create"><i class="fa fa-calendar-plus-o"></i> Book Room</a></li> --}}
+                        <li><a href="/payment"><i class="fa fa-calendar-check-o"></i> View payments</a></li>
+                        {{-- <li><a href="/bookings/canceled"><i class="fa fa-calendar-check-o"></i> Canceled Bookings</a></li> --}}
                     </ul>
                 </li>
             </ul>

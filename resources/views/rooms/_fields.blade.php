@@ -21,3 +21,9 @@
     {!! Form::select('beds', ['One Bed' => 'One Bed', 'Two Bed' => 'Two Bed', 'Triple Bed'=>'Triple Bed'],null,['class'=>'form-control selectpicker', 'data-live-search'=>'true', 'title'=>'Select Room Type']) !!}
     <span class="text-danger">{{ $errors->has('beds') ? $errors->first('name') : ''  }}</span>
 </div>
+
+<div class="form-group {{ $errors->has('price') ? 'has-error' : '' }}">
+    {!! Form::label('price','Price :') !!}
+    {!! Form::text('price',$room->price,['class'=>'form-control']) !!}
+    <span class="text-danger">{{ $errors->has('price') ? $errors->first('price') : ''  }}</span>
+</div>

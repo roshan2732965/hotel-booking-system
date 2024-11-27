@@ -21,7 +21,7 @@
     <table class="table table-bordered table-hover">
         <thead>
         <tr>
-            <th>#Booking ID</th>
+            <th>#</th>
             <th>Client Name</th>
             <th>Room</th>
             <th>Floor</th>
@@ -29,6 +29,7 @@
             <th>Type</th>
             <th>Booked At</th>
             <th>Booking End</th>
+            <th>Payment</th>
             <th>Booked By</th>
             <th>Status</th>
             <th>Action</th>
@@ -37,7 +38,7 @@
         <tbody>
         @foreach ($bookings as $booking)
             <tr>
-                <td>{{ $booking->id }}</td>
+                <td>{{ $loop->iteration }}</td>
                 <td><a href="clients/{{ $booking->client->id }}">{{ $booking->client->name }}</a></td>
                 <td>{{ $booking->room->name }}</td>
                 <td>{{ $booking->room->floor }}</td>
@@ -45,6 +46,15 @@
                 <td>{{ $booking->room->type }}</td>
                 <td>{{ $booking->start_date }}</td>
                 <td>{{ $booking->end_date }}</td>
+                <td>
+                    @if($booking->payments && $booking->payments->total_price == $booking->payments->total_payment)
+                    Paid
+                    @else
+                    Unpaid
+                    @endif
+                    
+                </td>
+
                 <td>{{ $booking->user->name }}</td>
                 <td>
                     @if ($booking->status)
