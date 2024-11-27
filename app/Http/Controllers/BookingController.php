@@ -61,8 +61,8 @@ class BookingController extends Controller
 
             $booking->payments()->create([
                 'total_price' => $request->total_price,
-                'total_payment' => $request->total_payment, // Initial payment
-                'payment_method' => $request->payment_method, // Payment method can be null or default
+                'total_payment' => $request->total_payment,
+                'payment_method' => $request->payment_method, 
             ]);
 
             // Update Rooms status
@@ -73,10 +73,12 @@ class BookingController extends Controller
             DB::commit();
 
             session()->flash('msg', 'The Room Has been booked');
+            return redirect()->back();
 
         } catch (\Exception $e) {
             DB::rollBack();
-            session()->flash('msg', 'Please try againa later !!');
+            // session()->flash('msg',$e->getMessage());
+            session()->flash('msg','Something went wrong !! Please try again later !!');
             return redirect()->back();
         }
 

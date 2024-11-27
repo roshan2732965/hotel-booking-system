@@ -18,6 +18,25 @@
 
             @include('bookings._fields')
 
+            <div class="form-group {{ $errors->has('total_price') ? 'has-error' : '' }}">
+                {!! Form::label('Total Price') !!}
+                {!! Form::text('total_price', @$client->total_price,['class' => 'form-control total_price', 'placeholder' => 'Total Price','readonly']) !!}
+                <span class="text-danger">{{ $errors->has('total_price') ? $errors->first('total_price') : '' }}</span>
+            </div>
+            <div class="form-group {{ $errors->has('total_payment') ? 'has-error' : '' }}">
+                {!! Form::label('payment') !!}  
+                {!! Form::number('total_payment', @$client->total_payment,['class' => 'form-control', 'placeholder' => 'Payment']) !!}
+                <span class="text-danger">{{ $errors->has('total_payment') ? $errors->first('total_payment') : '' }}</span>
+            </div>
+            <div class="form-group">
+                {!! Form::label('name','Payment Method:') !!}
+                <select class="selectpicker form-control" data-live-search="true" title="" name="payment_method">
+                        <option value="cash">CASH</option>
+                        <option value="card">CARD</option>
+                        <option value="both">CASH & CARD</option>
+                </select>
+            </div>
+
             {{ Form::submit('Book Room', ['class'=>'btn btn-primary']) }}
 
             {!!  link_to('/rooms','back',['class'=>'btn btn-success'], $secure = null) !!}

@@ -12,6 +12,10 @@
 
     // Bookings
     Route::resource('booking','BookingController');
+
+    // Payments
+    Route::resource('payment','PaymentController');
+
     // Cancel Bookings
     Route::post('booking/{room_id}/{booking_id}','BookingController@cancel')->name('booking.cancel');
 
