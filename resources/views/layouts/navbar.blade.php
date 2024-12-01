@@ -47,6 +47,13 @@
                         {{-- <li><a href="/bookings/canceled"><i class="fa fa-calendar-check-o"></i> Canceled Bookings</a></li> --}}
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-list"></span> Enquiries <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/enquiries/create"><i class="fa fa-calendar-plus-o"></i> Add Enquiry</a></li>
+                        <li><a href="/enquiries"><i class="fa fa-list-alt"></i> View Enquiries</a></li>
+                    </ul>
+                </li>
             </ul>
 
             @yield('search')

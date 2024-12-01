@@ -10,6 +10,11 @@
     // Rooms
     Route::resource('rooms','RoomController');
 
+    //Booking
+    Route::resource('enquiries','EnquiryController');
+    Route::get('enquiry/status/{id}','EnquiryController@status')->name('enquiry.status');
+
+
     // Bookings
     Route::resource('booking','BookingController');
 
