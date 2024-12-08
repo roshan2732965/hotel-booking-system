@@ -14,6 +14,8 @@
     Route::resource('enquiries','EnquiryController');
     Route::get('enquiry/status/{id}','EnquiryController@status')->name('enquiry.status');
 
+    //Notes
+    Route::resource('notes','NoteController');
 
     // Bookings
     Route::resource('booking','BookingController');
