@@ -16,6 +16,8 @@
 
     //Notes
     Route::resource('notes','NoteController');
+    Route::get('note/status/{id}','NoteController@status')->name('note.status');
+
 
     // Bookings
     Route::resource('booking','BookingController');

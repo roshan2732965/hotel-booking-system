@@ -1,15 +1,15 @@
 @extends('layouts.master')
 
 @section('title')
-    Edit Enquiry
+    Edit Note
 @endsection
 
 @section('content')
-    <h2><i class="fa fa-pencil"></i> Edit Enquiry</h2>
+    <h2><i class="fa fa-pencil"></i> Edit Note</h2>
     <hr>
-        {!! Form::model($enquiry, ['route' => ['enquiries.update',$enquiry->id], 'method'=>'PUT']) !!}
-        @include('enquiries._fields')
+        {!! Form::model($note, ['route' => ['notes.update',$note->id], 'method'=>'PUT']) !!}
+        @include('notes._fields')
         {!! Form::submit('Update', ['class'=>'btn btn-primary']) !!}
-        {!! link_to('/enquiries', 'Back',['class'=>'btn btn-success']) !!}
+        {!! link_to('/notes', 'Back',['class'=>'btn btn-success']) !!}
     {!! Form::close() !!}
 @endsection

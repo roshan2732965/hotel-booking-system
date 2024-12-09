@@ -9,18 +9,18 @@
     <div class="row">
 
         <div class="col-md-6 mt-3">
-            <h2><i class="fa fa-plus-square-o"></i> Add Enquiry</h2>
+            <h2><i class="fa fa-plus-square-o"></i> Add Note</h2>
             <hr>
 
             @include('errors.errors')
 
-            {{ Form::open(['url' => 'enquiries']) }}
+            {{ Form::open(['url' => 'notes']) }}
 
-            @include('enquiries._fields')
+            @include('notes._fields')
 
-            {{ Form::submit('Add Enquiry', ['class'=>'btn btn-primary']) }}
+            {{ Form::submit('Add Note', ['class'=>'btn btn-primary']) }}
 
-            {!!  link_to('/enquiries','back',['class'=>'btn btn-success'], $secure = null) !!}
+            {!!  link_to('/notes','back',['class'=>'btn btn-success'], $secure = null) !!}
 
             {{ Form::close() }}
 
