@@ -31,7 +31,7 @@
 
         <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
             <label for="password">Password</label>
-            <input type="password" name="password" class="form-control" id="password" value="secret">
+            <input type="password" name="password" class="form-control" id="password" value="password">
             <span class="text-danger">{{ $errors->has('password') ? $errors->first('password') : '' }}</span>
         </div>
 
