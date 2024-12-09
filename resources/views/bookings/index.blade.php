@@ -47,7 +47,7 @@
                 <td>{{ $booking->start_date }}</td>
                 <td>{{ $booking->end_date }}</td>
                 <td>
-                    @if($booking->payments && $booking->payments->total_price == $booking->payments->total_payment)
+                    @if($booking->payments && $booking->payments->total_price <=     $booking->payments->total_payment)
                     Paid
                     @else
                     Unpaid
