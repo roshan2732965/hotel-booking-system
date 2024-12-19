@@ -30,6 +30,7 @@ class NoteController extends Controller
             'title' => 'required',
             'message' => 'required',
         ]);
+        $request->merge(['user_id' => auth()->id()]);
 
         Note::create($request->all());
 
@@ -57,6 +58,7 @@ class NoteController extends Controller
             'message' => 'required',
         ]);
 
+        $request->merge(['user_id' => auth()->id()]);
         $note = Note::find($id);
         $note->update($request->all());
         $request->session()->flash('msg', 'Note has been updated');
