@@ -25,13 +25,13 @@
 
         <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
             <label for="email">Email</label>
-            <input type="email" name="email" class="form-control" id="email" value="javed@mail.com">
+            <input type="email" name="email" class="form-control" id="email" value="super@admin.com">
             <span class="text-danger">{{ $errors->has('email') ? $errors->first('email') : '' }}</span>
         </div>
 
         <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
             <label for="password">Password</label>
-            <input type="password" name="password" class="form-control" id="password" value="secret">
+            <input type="password" name="password" class="form-control" id="password" value="password">
             <span class="text-danger">{{ $errors->has('password') ? $errors->first('password') : '' }}</span>
         </div>
 
